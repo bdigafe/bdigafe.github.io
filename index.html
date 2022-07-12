@@ -1,8 +1,67 @@
 <html>
     <head>
-
+        <script src='https://d3js.org/d3.v5.min.js'></script>
+        <style> circle {fill: lightblue; stroke: black;} </style>
     </head>
-    <body>
-        <h1>Welcome</h1>
+
+    <body onload='init()'>
+        <svg width=300 height=300>
+        </svg>
+
+        <script>
+            async function init() {
+                var url = "https://flunky.github.io/cars2017.csv";
+                var csv = await d3.csv(url);
+            
+                xd = [10, 150]
+                yd = [10, 150]
+                xs = d3.scaleLog()
+                    .base(10)
+                    .domain(xd)
+                    .range([0, 200])
+                
+                ys = d3.scaleLog()
+                    .base(10)
+                    .domain(yd)
+                    .range([200, 0])
+
+                var svg = d3.select("svg");
+                const margin = 50;
+                var height = svg.attr("height") - margin*2;
+
+                svg.append("g")
+                    .attr("transform", "translate(50,50)")
+                    .selectAll("circle")
+                    .data(csv)
+                    .enter().append("circle")
+                    .attr("cx", function(d, i){ return xs( parseInt(d.AverageCityMPG)); })
+                    .attr("cy", function(d, i){ return ys(parseInt(d.AverageHighwayMPG)); })
+                    .attr("r",function(d, i){ return parseInt(d.EngineCylinders) + 2; })
+
+                // Y-axis
+                var y_axis = d3.axisLeft()
+                    .scale(ys)
+                    .tickValues([10, 20, 50, 100])
+                    .tickFormat(d3.format("~s"))
+
+                // X-axis
+                var x_axis = d3.axisBottom()
+                    .scale(xs)
+                    .tickValues([10, 20, 50, 100])
+                    .tickFormat(d3.format("~s"))
+
+                svg.append("g")
+                    .attr("transform", "translate(50,50)")
+                    .attr("fill", "none")
+                    .attr("font-size", "10")
+                    .attr("font-family", "sans-serif")
+                    .attr("text-anchor", "end")
+                    .call(y_axis);
+            
+                svg.append("g")
+                    .attr("transform", "translate(50,250)")
+                    .call(x_axis);
+        }
+    </script>
     </body>
 </html>
