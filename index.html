@@ -14,11 +14,6 @@
     </head>
 
     <body onload="init()">
-        <!-- Common elements -->
-        <!--div class="row">
-            <h4>Undergraduate enrollment under the microscope!</h4>
-        </div-->
-
         <div class="row">
             <div id="main">
             </div>
@@ -217,8 +212,8 @@
                 // Update dropdown controls
                 setupControls();
 
-                //var url = "https://bdigafe.github.io/data01.csv";
-                var url = "http://localhost/viz416/data01.csv";
+                var url = "https://bdigafe.github.io/data01.csv";
+                //var url = "http://localhost/viz416/data01.csv";
                 csv = await d3.csv(url);
 
                 // Get computed stats
