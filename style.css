@@ -1,0 +1,168 @@
+.label {
+    font-size: 8px;
+}
+
+select {
+    font-size: 8px;;
+}
+
+circle {
+    fill: lightblue; 
+    stroke: black;
+} 
+
+.axis {
+    font-size: 8px;
+    font-family: sans-serif;
+}
+
+.axis-title {
+    color: black;
+    font-size: 8px;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.tooltip {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    padding: 5px;;
+    max-height: 200px;
+    color: white;
+    font-size: 8px;
+    background-color:black;
+    border-width: 2px;
+    border-radius: 5px;
+    border-bottom-width: 7px;
+}
+
+.title-text {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.legend-text {
+    font-size: 8px;
+    color: black;
+}
+
+#tooltipSvg {
+    padding: 5px;
+    background-color: transparent!important;
+    color: white;
+}
+
+svg {
+    background-color: whitesmoke;
+    border-color: beige;
+    border: 5px;
+}
+
+p {
+    font-size: 8px;
+    padding: 0px;
+}
+
+h4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+h5 {
+    margin: 0px;
+}
+
+.row {
+    width: 600px;
+}
+
+.content-header {
+    margin: 0px;
+}
+
+.content-text {
+    padding: 0px;
+    font-size: 8px;
+}
+
+.content-chart {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.content-chart-params {
+    width: 30%;
+    background-color: gainsboro;
+}
+
+.content-chart-param {
+    padding-top: 5px;  
+}
+
+.content-chart-param > span {
+    width: 30px;
+    padding-left: 5px;
+    text-align: left;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.content-chart-param > select {
+    width: 90px;
+    display: inline-block;
+}
+
+.content-chart-chart {
+    width: 80%;
+}
+
+.content-footer {
+    padding: 5px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+ }
+
+ .content-footer-button {
+    padding-left: 10px;
+    color:darkblue;
+ }
+ 
+.button-back {
+    font-size: 14px;
+    background-color: orange;
+    color: navy;
+    width: 60px; 
+}
+
+.button-next {
+    font-size: 14px;
+    background-color: orange;
+    color: navy;
+    width: 60px;
+}
+
+
+.md-6 {
+    width: 50%;
+}
+
+.md-6 {
+    width: 50%;
+}
+
+.annotation-note-title {
+    font-size: 8px;
+}
+
+.annotation-note-label {
+    font-size: 6px;
+    text-align: left;
+    padding-top:10px;
+}
+
+.disclaimer {
+    font-size: 6px;
+    padding-left: 10px;
+}
