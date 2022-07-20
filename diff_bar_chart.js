@@ -24,8 +24,8 @@ function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY) {
     }
 
     function draw() {
-        const width = svg.attr("width") - 2 * margin;
-        const height = Math.floor((svg.attr("height") - margin) / 2);
+        const width =  (400 - 2*margin); // svg.attr("width") - 2 * margin;
+        const height = (200 - margin) / 2; //  Math.floor((svg.attr("height") - margin) / 2);
 
         // Title
         svg.append("g")
@@ -70,6 +70,7 @@ function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY) {
         var y_axis = d3.axisLeft()
             .scale(ys)
             .tickFormat(formatY)
+             
         
         svg.append("g")
             .attr("class", "axis")

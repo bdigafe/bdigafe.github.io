@@ -21,79 +21,43 @@
 
         <div class="row page1">
             <div class="content-header">
-                <div class="content-header-text">
-                    <h5>Undergraduate college enrollment by gender: Year 2020/21</h5>
-                </div>
-                <div class="content-header-navbar">
-                    <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
-                    </div>
-                </div>
-
+                <h5>Undergruate college enrollment by gender (2021)</h5>
             </div>
             <div class="content-text">
                 <p>
-                    According to US census data, the female population makes up 50.5% percent. 
+                    According to US census data, the female US population makes up 50.5% percent. 
                     Assuming this uniform distribution, we can reasonably expect the same distribution 
                     to be reflected in the undergraduate student enrollment. 
                 </p> 
                 <p>
                     Actual enrollment data shows that female undergraduate enrollment, across all the United States, is about 58%.
-                    This is a 15% increase from the normalized enrollment amount. This is a good news for women!
-                    On the contrary, there is a significant reduction in the male students. 
-                    This may not be a big surprise, but should this be a concern?
+                    This is a 15% from the normalized enrollment amount. This is a good news for women.
+                    However, the lag of the male population should be a concern with huge ramifications.
                 </p>
             </div>
 
-            <div class="row content-chart">
-               
-                <div style="width:58%;">
+            <div class="content-chart">
+                <div style="width:48%;">
                     <div class="svg-container">
-                        <svg  id="svg-gender-summary" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
+                        <svg id="svg-gender-summary2" class="svg-content" viewBox="0 0 300 175">
+                        </svg>
+                    </div>
+                </div>
+                <div style="width:48%;">
+                    <div> class="svg-container">
+                        <svg  id="svg-gender-summary" class="svg-content" viewBox="0 0 300 175">
                         </svg>
                     </div> 
-                </div>     
-                
-                <div style="width:40%;">
-                    <div>
-                       
-                        <div>
-                            <table style="border: 0px; width: 100%">
-                                <tr>
-                                    <td colspan="2">
-                                        <span style="font-size: 20px; font-weight: bold">Census: US population</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="./images/male.png" style="width: 100px;"/>
-                                    </td>
-                                    <td>
-                                        <img src="./images/female.jpg" style="width: 100px;"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span style="font-size: 20px; font-weight: bold">49.5%</span>
-                                    </td>
-                                    <td>
-                                        <span style="font-size: 20px; font-weight: bold">50.5%</span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="svg-container">
-                        <svg id="svg-gender-summary2" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
-                        </svg>
-                    </div>                    
-                </div>
+                </div>         
             </div>     
-
+            <div class="content-footer">
+                <div class="content-footer-button">
+                    <input type="button" class="button-next" onclick="next()" value="Next" />
+                </div>
+            </div>
             <div class="disclaimer">
                 <span>
-                    Main data: <a href="https://collegescorecard.ed.gov/data" target="_blank">
+                    Main data: <a href="https://collegescorecard.ed.gov/data" arget="_blank">
                         https://collegescorecard.ed.gov/data (Instituation data 2021</a>
                     <br/>
                 </span>
@@ -102,21 +66,12 @@
                         (https://www.census.gov/quickfacts/fact/table/US/PST045221</a>
                 </span>
             </div>
+
         </div>
 
         <div class="row page2">
             <div class="content-header">
-                <h5>Undergraduate college enrollment gap by ethnic group: Year 2020/21</h5>
-
-                <div class="content-header-navbar">
-                    <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
-                    </div>
-                    <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
-                    </div>
-                </div>
-
+                <h5>Undergraduate college enrollment gap by ethnic group (2021)</h5>
             </div>  
             <div>
                 <p>
@@ -128,49 +83,40 @@
                     American Indians show the largest percentage gap, followed by white, and black.
                     People with two or more race have better enrollment than their peers.
                 </p>
-                <p>
-                    Were your surprised by this?
-                </p>
             </div>
 
-            <div class="row content-chart">
+            <div class="content-chart">
                 <div style="width:48%;">
-                    <div class="svg-container">
-                        <svg id="svg-ethnic-summary2" class="svg-content" viewbox="0 0 400 200">
-                        </svg>
-                    </div>
+                    <svg  id="svg-ethnic-summary2" viewBox="0 0 300 175">
+                    </svg>
                 </div>
                 <div style="width:48%;">
-                    <div class="svg-container">
-                        <svg  id="svg-ethnic-summary" class="svg-content" viewbox="0 0 400 200">
-                        </svg>
-                    </div> 
-                </div>  
-            </div>
+                    <svg width=600 height=350 id="svg-ethnic-summary">
+                    </svg>
+                </div> 
+            </div>  
+
+            <div class="content-footer">              
+                <div class="content-footer-button">
+                    <input type="button" class="button-back" onclick="prev()" value="Back"/>
+                </div>
+                <div class="content-footer-button">
+                    <input type="button" class="button-next" onclick="next()" value="Next" />
+                </div>
+            </div>      
         </div>
 
         <div class="row page3">
            <div class="content-header">
                 <h5>Enrollment by ethnic group, SAT score, and college fee</h5>
-
-                <div class="content-header-navbar">
-                    <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
-                    </div>
-                    <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
-                    </div>
-                </div>
-
             </div>
             <div class="content-text">
                 <p>
-                    Aare curious where are studennts going based on SAT score, cost of attending college, or ethnic group? 
-                    You may find interesting facts!
+                    Curious where are studennts going based on SAT score, cost of attending college, or ethnic group?
                  </p>
                  <ul>
-                    <li>SAT score is the average SAT score accepted by the institution.</li>
-                    <li>Cost is the total cost of tuition, living expenes, textbooks, etc. after reduction Federal Pell grant, etc.</li>
+                    <li>SAT score: It the average SAT score accepted by the Instituation.</li>
+                    <li>Cost is the tuition, living, textbooks, etc. after reduction Federal Pell grant, etc.</li>
                  </ul>
             </div>
 
@@ -194,27 +140,23 @@
                         </select>  
                     </div>
                 </div>
+                <svg id="svg-ethnic" viewBox="0 0 800 400" width="100%">
+                </svg>  
+            </div>
 
-                <div style="width:80%;">
-                    <div class="svg-container">
-                        <svg id="svg-ethnic" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
-                        </svg>
-                    </div>
+            <div class="content-footer">
+                <div class="content-footer-button">
+                    <input type="button" class="button-back" onclick="prev()" value="Back"/>
                 </div>
-                
+                <div class="content-footer-button">
+                    <input type="button" class="button-next" onclick="next()" value="Next" />
+                </div>
             </div>      
         </div>
 
         <div class="row page4">
             <div class="content-header">
                 <h5>Gender enrollment by SAT score and college fee</h5>
-
-                <div class="content-header-navbar">
-                    <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
-                    </div>
-                </div>    
-
             </div>
 
             <div class="content">
@@ -244,15 +186,17 @@
                         </select>  
                     </div>
                 </div>
-                        
-                <div style="width:80%;">
-                    <div class="svg-container">
-                        <svg id="svg-gender" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
-                        </svg>
-                    </div>
+                <div class="content-chart-chart">
+                    <svg id="svg-gender" viewBox="0 0 800 400" width="100%">
+                    </svg>  
                 </div>
+            </div>
 
-            </div>  
+            <div class="content-footer">
+                <div class="content-footer-button">
+                    <input type="button" class="button-back" onclick="prev()" value="Back"/>
+                </div>
+            </div>      
         </div>
              
 
@@ -318,8 +262,16 @@
             }
 
             function chartSummaryByGender(data) {
+
+                var svg = d3.select("svg")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", "0 0 300 175")
+                    .classed("svg-content", true);
+                
                 drawSummaryChartByGender("svg-gender-summary", data);
                 drawSummaryChartByGenderPie("svg-gender-summary2", data);
+
+
             }
 
             // Hide/show all div contents based on the current page 

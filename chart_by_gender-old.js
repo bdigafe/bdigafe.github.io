@@ -65,9 +65,9 @@ function drawChartByGender(svgId, data) {
             <span>College: ${d["INSTNM"]}</span><br/>
             <span>Avg SAT score: ${d["SAT_AVG"]}</span><br/>
             <span>College fee:${getFeeAmt(d["NPT4_PUB"])}</span><br/>
-            <span>Undergraduate admission: ${getAdmissionCount(d)}</span><br/>
-            <div style="padding:5px">
-                <svg id="tooltipSvg"  viewbox="0 0 280 100">
+            <span>Total undergraduate admission: ${getAdmissionCount(d)}</span><br/>
+            <div style="padding:10px">
+                <svg id="tooltipSvg" viewBox="0 0 280 80">
                 </svg>
             </div>
         `;
@@ -97,12 +97,12 @@ function drawChartByGender(svgId, data) {
             .append("g")
             .attr("transform", function(d, i) { return "translate(90, 0)"; })   
             
-       var legend = d3.select("#tooltipSvg")
+        legend = d3.select("#tooltipSvg")
             .selectAll(".legend")
             .data(data)
             .enter().append("g")
             .attr("class", "legend")
-            .attr("transform", function(d, i) { return `translate(90, ${i*10})`; })   
+            .attr("transform", function(d, i) { return `translate(90, ${i*15})`; })   
 
         legend.append("rect")
             .attr("x", 10)
@@ -115,7 +115,7 @@ function drawChartByGender(svgId, data) {
             .text(function(d, i) { return `${GENDER_NAMES[i+1]} (${formatPercent(d*100)}%)`; })
             .attr("x", 40)
             .attr("y", 8)
-            .attr("class", "tooltip-legend-text")
+            .attr("class", "legend-text")
             .attr("fill", "white");
     }
 
@@ -177,11 +177,11 @@ function drawSummaryChartByGender(svgId, data) {
                     title: `Actual: ${formatNumber(data[1].adm_count)}`,
                     label: `Gap: ${formatNumber(data[1].adm_count_diff_abs)}`
                 },
-              x: 50,
-              y: 130,
-              dy: 10,
-              dx: 20,
-              subject: { radius: 5, radiusPadding: 0 },
+              x: 100,
+              y: 260,
+              dy: 20,
+              dx: 40,
+              subject: { radius: 10, radiusPadding: 0 },
             },
     
             {
@@ -189,10 +189,10 @@ function drawSummaryChartByGender(svgId, data) {
                     title: `Actual: ${formatNumber(data[2].adm_count)}`,
                     label: `Gap: ${formatNumber(data[2].adm_count_diff_abs)}`
                 },
-                x: 100,
-                y: 40,
-                dy: 10,
-                dx: 20,
+                x: 200,
+                y: 80,
+                dy: 20,
+                dx: 40,
                 subject: { radius: 5, radiusPadding: 0 },
               },
         ];
@@ -211,7 +211,7 @@ function drawSummaryChartByGender(svgId, data) {
     var svg = d3.select("#" + svgId)
     const title = "Gender enrollment gap";
 
-    drawDiffBarChart(svg, filteredData, 40, "label", "adm_count_diff", title, formatY);
+    drawDiffBarChart(svg, filteredData, 30, "label", "adm_count_diff", title, formatY);
 
     svg.append("g")
         .attr("class", "annotation-group")
@@ -230,10 +230,10 @@ function drawSummaryChartByGenderPie(svgId, data) {
     var svg = d3.select("#" + svgId)
     var accent = d3.scaleOrdinal(d3.schemePaired ); 
     var pie = d3.pie();
-    var arc = d3.arc().innerRadius(0).outerRadius(70);
+    var arc = d3.arc().innerRadius(0).outerRadius(140);
     
     svg.append("g")
-        .attr("transform", "translate(100,100)")
+        .attr("transform", "translate(200, 200)")
         .selectAll("path")
         .data(pie(values))
         .enter().append("path")
@@ -243,7 +243,8 @@ function drawSummaryChartByGenderPie(svgId, data) {
      // Title
     const margin = 30
     const title ="Actual enrollment by gender"
-     svg.append("g")
+     
+    svg.append("g")
         .attr("transform", `translate(${margin}, ${margin/2})`)
         .append("text")
         .text(title)
@@ -254,24 +255,24 @@ function drawSummaryChartByGenderPie(svgId, data) {
         .attr("fill", "black");
     
     var legend = svg.append("g")
-        .attr("transform", function(d, i) { return "translate(220, 100)"; })   
+        .attr("transform", function(d, i) { return "translate(400, 200)"; })   
         
     legend = svg.selectAll(".legend")
         .data(values)
         .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(d, i) { return `translate(170, ${i*10 + 80})`; })   
+        .attr("transform", function(d, i) { return `translate(340, ${i*20 + 160})`; })   
 
     legend.append("rect")
-        .attr("x", 10)
+        .attr("x", 20)
         .attr("y", 0)
-        .attr("width", 20)
-        .attr("height", 8)
+        .attr("width", 40)
+        .attr("height", 16)
         .attr("fill", function(d, i) { return accent(i);} );
                 
     legend.append("text")
-        .text(function (d, i) { return `${keys[i]} (${(d * 100).toFixed(0)}%)`; })
-        .attr("x", 40)
-        .attr("y", 8)
+        .text(function (d, i) { return `${keys[i]} (${(d * 200).toFixed(0)}%)`; })
+        .attr("x", 80)
+        .attr("y", 10)
         .attr("class", "legend-text")
 }

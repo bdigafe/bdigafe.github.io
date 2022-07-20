@@ -4,8 +4,9 @@ function drawScatterPlot(svg, data, margin,
     formatX, formatY,
     tooltipParent, tipContent, tipScript) {
     
-    var width = svg.attr("width") - margin * 2;
-    var height = svg.attr("height") - margin * 2;
+
+    var width = 400 - 2 * margin;
+    var height = 200 - 2 * margin;
 
     xd = [0, width];
     yd = [0, height];
@@ -60,12 +61,11 @@ function drawScatterPlot(svg, data, margin,
         .attr("transform", `translate(${margin + width},${height + margin + 30})`)
         .append("text")
         .text("Avg SAT score")
+        .attr("y", 0)
         .style("text-anchor", "end")
-
-    //addRangeSlider(svg, xs, margin, formatX, xsliderChange);
     
    function mouseover(d) {
-        var x = d3.event.pageX;
+       var x = d3.event.pageX;
        var y = d3.event.pageY;
        createTooltip(x, y, d);
        return;
@@ -78,7 +78,7 @@ function drawScatterPlot(svg, data, margin,
     function createTooltip(x, y, d) {
         d3.select("#" + tooltipParent).selectAll(".tooltip").remove()
     
-        var tooltip = d3.select("#" + tooltipParent)
+        d3.select("#" + tooltipParent)
             .append("div")
             .attr("class", "tooltip")
             .html(tipContent(d))
@@ -87,13 +87,6 @@ function drawScatterPlot(svg, data, margin,
             .style("top", y);
     
         tipScript(d);
-    }
-
-    function xsliderChange(val) {
-        if (val != x_data_min)
-            xs.domain(x_data_min, val);
-        else
-            xs.domain(x_data_min, x_data_max);
     }
 }
 
@@ -127,30 +120,4 @@ function createTooltip(parent, tipContent, tipScript) {
     return tooltip;
 }
 
-/*
-function addRangeSlider(svg, scale, margin, format, onchange) {
-    var width = svg.attr("width") - 2 * margin;
 
-    var sliderRange = d3
-        .sliderBottom()
-        .min(756)
-        .max(1556)
-        .width(width-10)
-        .height(4)
-        .fill('#2196f3')
-        .step(1)
-        .displayValue(false)
-        .ticks(0)
-        .on('onchange', val => {
-            onchange(val);
-        });
-
-    var x = margin + 8;
-    var y = svg.attr("height") - margin ;
-
-    svg.append("g")
-        .attr("class", "x-slider")
-        .attr("transform", `translate(${x},${y})`)
-        .call(sliderRange);
-}
-*/
