@@ -65,6 +65,7 @@
             <span>Avg SAT score: ${d["SAT_AVG"]}</span><br/>
             <span>College fee:${getFeeAmt(d["NPT4_PUB"])}</span><br/>
             <span>Undergraduate admission: ${getAdmissionCount(d)}</span><br/>
+            <a href="${d["INSTURL"]}" targe="_blank"><span>website: ${d["INSTURL"]} </span></a>
             <div style="padding:5px">
                 <svg id="tooltipSvg" viewbox="0 0 280 100">
                 </svg>
