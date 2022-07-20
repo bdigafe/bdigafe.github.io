@@ -174,30 +174,72 @@ function drawSummaryChartByEthnic(svgId, data) {
         const annotations = [
             {
                 note: {
-                    title: `Gap: ${formatNumber(data[1].adm_count_diff_abs)}`
+                    title: `Gap: ${formatNumber(data[1].adm_count_diff_abs)}`,
+                    padding: 5,
+                    align: "middle",
+                    wrap: 10
                 },
-                x: 50,
-                y: 120,
-                dy: 10,
-                dx: 30,
-                subject: { radius: 5, radiusPadding: 0 }
+
+                connector: {
+                    end: "dot", 
+                    type: "line", 
+                    lineType: "horizontal",
+                    endScale: 1 
+                  },
+
+                color: ["red"],
+                x: 43,
+                y: 140,
+                dy: 40,
+                dx: 0,
             },
             {
                 note: {
-                    title: `Gap: ${formatNumber(data[5].adm_count_diff_abs)}`
+                    title: `Gap: ${formatNumber(data[2].adm_count_diff_abs)}`,
+                    padding: 5,
+                    align: "middle",
+                    wrap: 10
                 },
-                x: 255,
-                y: 150,
-                dy: -20,
-                dx: -65,
-                subject: { radius: 5, radiusPadding: 0 }
+
+                connector: {
+                    end: "dot", 
+                    type: "line", 
+                    lineType: "horizontal",
+                    endScale: 1 
+                },
+
+                color: ["red"],
+                x: 97,
+                y: 124,
+                dy: 30,
+                dx: 0,
+            },
+            
+            {
+                note: {
+                    title: `Gap: ${formatNumber(data[2].adm_count_diff_abs)}`,
+                    align: "left",
+                },
+
+                connector: {
+                    end: "dot", 
+                    type: "line",  
+                    points: 1,
+                    endScale: 1 
+                },
+
+                color: ["red"],
+                x: 265,
+                y: 195,
+                dy: -40,
+                dx: 30,
               },
         ];
         
         return d3.annotation()
             .editMode(false)
             .notePadding(5)
-            .type(d3.annotationCallout)
+            //.type(d3.annotationCallout)
             .annotations(annotations);
     }
     
@@ -257,7 +299,7 @@ function drawSummaryChartByEthnicPie(svgId, data) {
         .data(values)
         .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(d, i) { return `translate(170, ${i*10 + 50})`; })   
+        .attr("transform", function(d, i) { return `translate(170, ${i*15 + 50})`; })   
 
     legend.append("rect")
         .attr("x", 10)

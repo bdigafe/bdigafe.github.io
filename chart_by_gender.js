@@ -177,11 +177,16 @@ function drawSummaryChartByGender(svgId, data) {
                     title: `Actual: ${formatNumber(data[1].adm_count)}`,
                     label: `Gap: ${formatNumber(data[1].adm_count_diff_abs)}`
                 },
-              x: 50,
-              y: 130,
-              dy: 10,
-              dx: 20,
-              subject: { radius: 5, radiusPadding: 0 },
+                connector: {
+                    end: "dot", 
+                    type: "line",  
+                    endScale: 3 
+                },
+              color: "red",
+              x: 52,
+              y: 140,
+              dy: 30,
+              dx: 40,
             },
     
             {
@@ -189,11 +194,16 @@ function drawSummaryChartByGender(svgId, data) {
                     title: `Actual: ${formatNumber(data[2].adm_count)}`,
                     label: `Gap: ${formatNumber(data[2].adm_count_diff_abs)}`
                 },
-                x: 100,
-                y: 40,
-                dy: 10,
-                dx: 20,
-                subject: { radius: 5, radiusPadding: 0 },
+                connector: {
+                    end: "dot", 
+                    type: "line",    
+                    endScale: 3 
+                },
+                color: "green",
+                x: 108,
+                y: 55,
+                dy: 30,
+                dx: 40
               },
         ];
         
@@ -222,7 +232,7 @@ function drawSummaryChartByGenderPie(svgId, data) {
 
     var values = [];
     var keys = [];
-    for(var i = 1; i < data.length; i++) {
+    for (var i = 1; i < data.length; i++) {
         keys.push(data[i].label);
         values.push(data[i].adm_percent);
     }
@@ -260,7 +270,7 @@ function drawSummaryChartByGenderPie(svgId, data) {
         .data(values)
         .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(d, i) { return `translate(170, ${i*10 + 80})`; })   
+        .attr("transform", function(d, i) { return `translate(170, ${i*15 + 80})`; })   
 
     legend.append("rect")
         .attr("x", 10)

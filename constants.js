@@ -4,7 +4,7 @@ const EthnicInfo = [
     { 'order' : 2, 'label': "Black", "adm_rate_field": "UGDS_BLACK" , "population" : 0.136 },
     { 'order' : 3, 'label': "Hispano", "adm_rate_field": "UGDS_HISP" , "population" : 0.189},
     { 'order' : 4, 'label': "Assian", "adm_rate_field": "UGDS_ASIAN" , "population" : 0.061 },
-    { 'order' : 5, 'label': "American Indian", "adm_rate_field": "UGDS_AIAN" , "population" : 0.016 },
+    { 'order' : 5, 'label': "Am. Indian", "adm_rate_field": "UGDS_AIAN" , "population" : 0.016 },
     { 'order' : 6, 'label': "Non-Hispanic", "adm_rate_field": "UGDS_NHPI" , "population" : 0 },
     { 'order' : 7, 'label': "Multi-race", "adm_rate_field": "UGDS_2MOR" , "population" :  0.029},
     { 'order' : 8, 'label': "No race", "adm_rate_field": "UGDS_NRA" , "population" : 0 },

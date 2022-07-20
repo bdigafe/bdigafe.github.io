@@ -76,7 +76,7 @@ circle {
 } 
 
 .axis {
-    font-size: 8px;
+    font-size: 6px;
     font-family: sans-serif;
 }
 
@@ -116,6 +116,7 @@ circle {
 .content-text {
     padding: 0px;
     font-size: 16px;
+    background-color: lightgray;
 }
 
 .content-chart {
@@ -141,15 +142,14 @@ circle {
 }
 
 .content-chart-param > span {
-    width: 60px;
+    width: 80px;
     padding-left: 10px;
     text-align: left;
-    font-weight: bold;
     display: inline-block;
 }
 
 .content-chart-param > select {
-    width: 180px;
+    width: 140px;
     display: inline-block;
 }
 
@@ -180,8 +180,7 @@ circle {
 }
 
 .legend-text {
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 11px;
     color: black;
 }
 
@@ -196,11 +195,13 @@ circle {
 
 .annotation-note-label {
     font-size: 8px;
-    text-align: left;
-    padding-top: 20px;
 }
 
 .disclaimer {
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 10px;
+}
+
+td {
+    text-align: center;
 }

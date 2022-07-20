@@ -64,6 +64,16 @@ function drawScatterPlot(svg, data, margin,
         .attr("y", 0)
         .style("text-anchor", "end")
     
+    svg.append("g")
+        .attr("class", "axis-title")
+        .attr("transform", `translate(150,150))`)
+        .append("text")
+        .attr("transform", "rotate(90)")
+        .text("College cost (USD)")
+        .attr("y", -5)
+        .attr("x", 50)
+    
+    
    function mouseover(d) {
        var x = d3.event.pageX;
        var y = d3.event.pageY;
