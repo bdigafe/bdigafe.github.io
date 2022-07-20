@@ -64,9 +64,9 @@
             <span>College: ${d["INSTNM"]}</span><br/>
             <span>Avg SAT score: ${d["SAT_AVG"]}</span><br/>
             <span>College fee:${getFeeAmt(d["NPT4_PUB"])}</span><br/>
-            <span>Total undergraduate admission: ${getAdmissionCount(d)}</span><br/>
-            <div style="padding:5x">
-                <svg id="tooltipSvg" width="280" height="100">
+            <span>Undergraduate admission: ${getAdmissionCount(d)}</span><br/>
+            <div style="padding:5px">
+                <svg id="tooltipSvg" viewbox="0 0 280 100">
                 </svg>
             </div>
         `;
@@ -114,7 +114,7 @@
             .text(function(d, i) { return `${EthnicNames[i+1]} (${formatPercent(d*100)}%)`; })
             .attr("x", 40)
             .attr("y", 8)
-            .attr("class", "legend-text")
+            .attr("class", "tooltip-legend-text")
             .attr("fill", "white");
     }
 
@@ -206,7 +206,7 @@ function drawSummaryChartByEthnic(svgId, data) {
      });
     
     var svg = d3.select("#" + svgId)
-    const title = "Enrollent gap by ethnic group";
+    const title = "Enrollment gap by ethnic group";
 
     drawDiffBarChart(svg, filteredData, 30, "label", "adm_count_diff", title, formatY);
 
@@ -239,7 +239,7 @@ function drawSummaryChartByEthnicPie(svgId, data) {
     
      // Title
     const margin = 30
-    const title ="Actual enrollment by ethnic"
+    const title ="Actual enrollment by ethnic group"
      svg.append("g")
         .attr("transform", `translate(${margin}, ${margin/2})`)
         .append("text")
