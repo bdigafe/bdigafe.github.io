@@ -166,8 +166,9 @@
             </div>
             <div class="content-text">
                 <p>
-                    Aare curious where are studennts going based on SAT score, cost of attending college, or ethnic group? 
-                    You may find interesting facts!
+                   SAT score and college cost are key factors for getting into the college of choice for students. 
+                   You can get intersting facts for the different ethnic groups. For example, most black students
+                   enter into college with SAT score below 1200, which indicates problems with the high-school education.
                  </p>
                  <ul>
                     <li>SAT score is the average SAT score accepted by the institution.</li>
@@ -208,21 +209,23 @@
 
         <div class="row page4">
             <div class="content-header">
-                <h5>Gender enrollment by SAT score and college fee</h5>
+                <h5>Enrollment by gender, SAT score, and college fee</h5>
 
                 <div class="content-header-navbar">
                     <div class="content-footer-button">
                         <input type="button" class="button-back" onclick="prev()" value="Back"/>
                     </div>
-                </div>    
-
+                    <div class="content-footer-button">
+                        <input type="button" class="button-next" onclick="home()" value="Begin" />
+                    </div>
+                </div>
             </div>
 
-            <div class="content">
-                <p>
-                    We have also similar data based on gender!
-                    Note that the cost or SAT are the average per the college and it does not reflect a 
-                    particular student!
+            <div class="content-text">
+                <p>Fortunately, we don't see a similar pattern by gender!
+                    The data shows both male and female students spread accross a wide range of SAT
+                    score and tuition cost. You can explore to see if this patterns holds for all states. 
+                    Or, you can see see which colleges accept more male or female students.
                 </p>
             </div>
 
@@ -274,7 +277,6 @@
                 setupControls();
 
                 var url = "https://bdigafe.github.io/data01.csv";
-                //var url = "http://localhost/viz416/data01.csv";
                 csv = await d3.csv(url);
 
                 // Get computed stats
@@ -362,7 +364,11 @@
 
                 setupPage();
             }
-            
+
+            function home() {
+                    curPage=1
+                    setupPage();
+            }
     </script>
 
     </body>

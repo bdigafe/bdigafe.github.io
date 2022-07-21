@@ -71,8 +71,7 @@ function drawScatterPlot(svg, data, margin,
         .attr("transform", "rotate(90)")
         .text("College cost (USD)")
         .attr("y", -5)
-        .attr("x", 50)
-    
+        .attr("x", 50);
     
    function mouseover(d) {
        var x = d3.event.pageX;
