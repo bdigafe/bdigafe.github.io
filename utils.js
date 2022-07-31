@@ -34,7 +34,7 @@ function getSummaryByGender(data) {
         if (e.label != "All") {
             e.adm_count = Math.floor(d3.sum(data, d => parseFloat(d[e.adm_rate_field]) * d["UGDS"])); 
             e.adm_percent = e.adm_count / totalAdm;
-
+    
             e.adm_count_norm = totalAdm * e.population;  
             e.adm_count_diff_abs = (e.adm_count - e.adm_count_norm)
 
