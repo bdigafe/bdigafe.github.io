@@ -188,7 +188,7 @@ function drawSummaryChartByEthnic(svgId, data) {
                     endScale: 1 
                   },
 
-                color: ["red"],
+                color: ["gray"],
                 x: 43,
                 y: 140,
                 dy: 40,
@@ -209,7 +209,7 @@ function drawSummaryChartByEthnic(svgId, data) {
                     endScale: 1 
                 },
 
-                color: ["red"],
+                color: ["gray"],
                 x: 97,
                 y: 124,
                 dy: 30,
@@ -229,7 +229,7 @@ function drawSummaryChartByEthnic(svgId, data) {
                     endScale: 1 
                 },
 
-                color: ["red"],
+                color: ["gray"],
                 x: 265,
                 y: 195,
                 dy: -40,

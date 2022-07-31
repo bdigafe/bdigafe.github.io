@@ -1,4 +1,4 @@
-function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY) {
+function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY, makeAnnotations) {
 
     function getDiffRange() {
         var y_data_min = d3.min(data, d => { return parseInt(d[colY]); });
@@ -90,10 +90,9 @@ function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY) {
             .attr("x", 0)
             .attr("y", 0)
             .attr("width", 15)
-            .attr("height", function (d) { return Math.abs(ys(d[colY])); })
-            .attr("diff", function (d) { return d[colY]; })
             .attr("fill", function (d, i) { return xs(d[colX]); })
-                    
+            .attr("height", function (d) { return Math.abs(ys(d[colY])); })         
+        
         bar.append("text")
             .text(function (d, i) { return d.label;  })
             .attr("x", 0)
@@ -104,4 +103,5 @@ function drawDiffBarChart(svg, data, margin, colX, colY, title, formatY) {
     }
 
     draw(); 
+    
 }

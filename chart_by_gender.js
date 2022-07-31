@@ -1,3 +1,4 @@
+// Interactive chart: Gender data by SAT/College Fee
 function drawChartByGender(svgId, data) {
     const formatFee = d3.format("$,.0r");
     const formatPercent = d3.format(",.2r");
@@ -170,48 +171,42 @@ function drawSummaryChartByGender(svgId, data) {
     function formatY(x, p) {
         return (x).toFixed(0) + "%";
     }
+
+    // Y-Label in Millions
+    function formatYBar(x, p) {
+        return (x / 1000000).toFixed(0) + "M";
+    }
     
     function makeAnnotations() {
         const annotations = [
             {
                 note: {
-                    title: `Actual: ${formatNumber(data[1].adm_count)}`,
-                    label: `Gap: ${formatNumber(data[1].adm_count_diff_abs)}`
+                    label: `Male students have ${formatNumber(data[2].adm_count_diff_abs)} fewer enrollment!!`
                 },
-                connector: {
-                    end: "dot", 
-                    type: "line",  
-                    endScale: 3 
-                },
-              color: "red",
-              x: 52,
-              y: 140,
-              dy: 30,
-              dx: 40,
-            },
-    
-            {
-                note: {
-                    title: `Actual: ${formatNumber(data[2].adm_count)}`,
-                    label: `Gap: ${formatNumber(data[2].adm_count_diff_abs)}`
-                },
+                subject: {
+                    width: 40,
+                    height: 45
+                  },
                 connector: {
                     end: "dot", 
                     type: "line",    
                     endScale: 3 
                 },
-                color: "green",
-                x: 108,
-                y: 55,
-                dy: 30,
-                dx: 40
-              },
+                color: "red",
+                x: 220,
+                y: 20,
+                dx:-10,
+                dy: 0,
+                nx: 200,
+                ny: 25
+
+               },
         ];
         
         return d3.annotation()
             .editMode(false)
             .notePadding(5)
-            .type(d3.annotationCallout)
+            .type(d3.annotationCalloutRect)
             .annotations(annotations);
      }
     
@@ -222,11 +217,8 @@ function drawSummaryChartByGender(svgId, data) {
     var svg = d3.select("#" + svgId)
     const title = "Gender enrollment gap";
 
-    drawDiffBarChart(svg, filteredData, 40, "label", "adm_count_diff", title, formatY);
-
-    svg.append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations());
+    //drawDiffBarChart(svg, filteredData, 20, "label", "adm_count_diff", title, formatY);
+    drawBarChart(svg, filteredData, 20, "label", "adm_count_norm", "adm_count", title, formatYBar, makeAnnotations);
 }
 
 function drawSummaryChartByGenderPie(svgId, data) {

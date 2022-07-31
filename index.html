@@ -9,6 +9,7 @@
         <script src="chart_by_gender.js"></script>
         <script src="scatterplot.js"></script>
         <script src="diff_bar_chart.js"></script>
+        <script src="bar_chart.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
@@ -25,8 +26,13 @@
                     <h5>Undergraduate college enrollment by gender: Year 2020/21</h5>
                 </div>
                 <div class="content-header-navbar">
+                   <span>Show data&nbsp;</span> 
+                    <label class="switch">
+                        <input class="show-data-checkbox" type="checkbox" onchange="toggleDataTable(this);">
+                        <span class="slider round"></span>
+                    </label>
                     <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
+                        <input type="button" class="button-next box" onclick="next()" value="Next" />
                     </div>
                 </div>
 
@@ -34,75 +40,52 @@
             <div class="content-text">
                 <p>
                     According to US census data, the female population makes up 50.5% percent. 
-                    Assuming this uniform distribution, we can reasonably expect a uniform gender distribution 
-                    in the undergraduate student enrollment. 
-                </p> 
-                <p>
-                    However, actual enrollment data shows that female undergraduate enrollment is 58% and 42% for male students.
-                    This is a 15% increase of female enrollment from the normalized numbers. This is good news for women!
+                    Assuming this uniform distribution, we can expect a uniform gender distribution 
+                    in the undergraduate student enrollment. However, actual enrollment of female students is 58% and 42% for male.
+                    This is a 15% increase for female students from the normalized numbers. This is good news for women!
                     On the contrary, the significant gap of male students could be concerning. 
-                    This may not be a big surprise, but should this be a concern?
                 </p>
             </div>
 
             <div class="row content-chart">
-                
-                <div style="width:36%;">
-                    <div>
-                       
-                        <div>
-                            <table style="border: 0px; width: 100%">
-                                <tr>
-                                    <td colspan="2">
-                                        <span style="font-size: 20px; font-weight: bold">Census: US population</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="./images/male.png" style="width: 100px;"/>
-                                    </td>
-                                    <td>
-                                        <img src="./images/female.jpg" style="width: 100px;"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span style="font-size: 20px; font-weight: bold">49.5%</span>
-                                    </td>
-                                    <td>
-                                        <span style="font-size: 20px; font-weight: bold">50.5%</span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                <!--div class="svg-container">
+                    <svg id="svg-gender-summary2" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
+                    </svg>
+                </div-->
 
-                    <div class="svg-container">
-                        <svg id="svg-gender-summary2" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
-                        </svg>
-                    </div>
-                </div>
-
-                <div style="width:60%;">
+                <div style="width:65%;">
                     <div class="svg-container">
                         <svg  id="svg-gender-summary" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
                         </svg>
                     </div> 
                 </div>  
-            </div>     
 
-            <div class="disclaimer">
-                <hr style="height: 3px; background-color: black;" />
-                <span>
-                    Main data source: <a href="https://collegescorecard.ed.gov/data" target="_blank">
-                        https://collegescorecard.ed.gov/data (Instituation data 2021</a>
-                    <br/>
-                </span>
-                <span>
-                    Census data: <a href="https://www.census.gov/quickfacts/fact/table/US/PST045221" target="_blank">
-                        (https://www.census.gov/quickfacts/fact/table/US/PST045221</a>
-                </span>
-            </div>
+                <div style="width:32%;display: none;" class="table-data">
+                    <table style="border: 0px; width: 100%;" id="data-table-gender">
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <span style="font-size: 20px; font-weight: bold">Census: US population</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Gender</span>
+                                </td>
+                                <td>
+                                    <span>% US</span>
+                                </td>
+                                <td>
+                                    <span>Enrollment</span>
+                                </td>
+                                <td>
+                                    <span>Enrollment %</span>
+                                </td>
+                            </tr>   
+                        </tbody>                    
+                    </table>
+                </div>
+            </div>     
         </div>
 
         <div class="row page2">
@@ -110,43 +93,68 @@
                 <h5>Undergraduate college enrollment gap by ethnic group: Year 2020/21</h5>
 
                 <div class="content-header-navbar">
+                    <span>Show data&nbsp;</span> 
+                    <label class="switch">
+                        <input class="show-data-checkbox" type="checkbox" onchange="toggleDataTable(this);">
+                        <span class="slider round"></span>
+                    </label>
+
                     <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
+                        <input type="button" class="button-back box" onclick="prev()" value="Back"/>
                     </div>
                     <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
+                        <input type="button" class="button-next box" onclick="next()" value="Next" />
                     </div>
                 </div>
 
             </div>  
             <div class="content-text">
                 <p>
-                    In this page we look at the undergraduate college enrollment data but by ethnic groups. 
-                    As before, we are interested in the difference between the actual enrollment numbers
-                    with the normalzed enrollment based on the ratio of the ethnic groups in the population.
-                </p>
-                <p>
+                    The enrollment by ethnic group also shows grim results.
                     American Indians show the largest percentage gap, followed by white, and black.
                     People with two or more race have better enrollment than their peers.
-                </p>
-                <p>
                    <b> Are your surprised? </b>
                 </p>
             </div>
 
             <div class="row content-chart">
-                <div style="width:48%;">
-                    <div class="svg-container">
-                        <svg id="svg-ethnic-summary2" class="svg-content" viewbox="0 0 400 200">
-                        </svg>
-                    </div>
-                </div>
-                <div style="width:48%;">
+                <div style="width:65%;">
                     <div class="svg-container">
                         <svg  id="svg-ethnic-summary" class="svg-content" viewbox="0 0 400 200">
                         </svg>
                     </div> 
                 </div>  
+
+                <div style="width:32%; display: none;" class="table-data">
+                    <div>
+                        <table style="border: 0px; width: 100%;" id="data-table-ethnic">
+                            <tr>
+                                <td colspan="4">
+                                    <span style="font-size: 20px; font-weight: bold">Census: US population</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Ethnic group</span>
+                                </td>
+                                <td>
+                                    <span>% US</span>
+                                </td>
+                                <td>
+                                    <span>Enrollment</span>
+                                </td>
+                                <td>
+                                    <span>Enrollment %</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                <!--div class="svg-container">
+                    <svg id="svg-gender-summary2" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
+                    </svg>
+                </div-->
+                </div>
             </div>
         </div>
 
@@ -156,24 +164,20 @@
 
                 <div class="content-header-navbar">
                     <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
+                        <input type="button" class="button-back box" onclick="prev()" value="Back"/>
                     </div>
                     <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="next()" value="Next" />
+                        <input type="button" class="button-next box" onclick="next()" value="Next" />
                     </div>
                 </div>
 
             </div>
             <div class="content-text">
                 <p>
-                   SAT score and college cost are key factors for getting into the college of choice for students. 
+                   For most students, SAT score and college cost are key factors for getting into college of their choice. 
                    You can get intersting facts for the different ethnic groups. For example, most black students
                    enter into college with SAT score below 1200, which indicates problems with the high-school education.
                  </p>
-                 <ul>
-                    <li>SAT score is the average SAT score accepted by the institution.</li>
-                    <li>Cost is the total cost of tuition, living expenes, textbooks, etc. after reduction Federal Pell grant, etc.</li>
-                 </ul>
             </div>
 
             <div class="content-chart">
@@ -197,7 +201,7 @@
                     </div>
                 </div>
 
-                <div style="width:80%;">
+                <div style="width:75%;">
                     <div class="svg-container">
                         <svg id="svg-ethnic" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
                         </svg>
@@ -213,10 +217,10 @@
 
                 <div class="content-header-navbar">
                     <div class="content-footer-button">
-                        <input type="button" class="button-back" onclick="prev()" value="Back"/>
+                        <input type="button" class="button-back box" onclick="prev()" value="Back"/>
                     </div>
                     <div class="content-footer-button">
-                        <input type="button" class="button-next" onclick="home()" value="Begin" />
+                        <input type="button" class="button-next box" onclick="home()" value="Begin" />
                     </div>
                 </div>
             </div>
@@ -249,7 +253,7 @@
                     </div>
                 </div>
                         
-                <div style="width:80%;">
+                <div style="width:75%;">
                     <div class="svg-container">
                         <svg id="svg-gender" class="svg-content" viewbox="0 0 400 200" preserveAspectRatio="xMinYMin meet">
                         </svg>
@@ -258,12 +262,30 @@
 
             </div>  
         </div>
-             
+    
+        <div class="disclaimer">
+            <hr style="height: 3px; background-color: black;" />
+            <span>
+                Main data source: <a href="https://collegescorecard.ed.gov/data" target="_blank">
+                    https://collegescorecard.ed.gov/data (Instituation data 2021</a>
+                <br/>
+            </span>
+            <span>
+                Census data: <a href="https://www.census.gov/quickfacts/fact/table/US/PST045221" target="_blank">
+                    (https://www.census.gov/quickfacts/fact/table/US/PST045221</a>
+            </span>
+            <br/>
+             <span>Notes:
+                <li>SAT score is the average SAT score accepted by the institution.</li>
+                <li>Cost is the total cost of tuition, living expenes, textbooks, etc. after reduction Federal Pell grant, etc.</li>
+             </span>
+        </div>
 
         <script>
             var csv = null;
             var summaryByEthnic = null;
             var summaryByGender = null;
+            var showData = false;
 
             const MAX_PAGES = 4;
             var curPage = 1;
@@ -282,6 +304,10 @@
                 // Get computed stats
                 summaryByEthnic = getSummaryByEthnic(csv);
                 summaryByGender = getSummaryByGender(csv);
+
+                 // Setup Ethnicity list
+                setupDataTable("data-table-gender", summaryByGender);
+                setupDataTable("data-table-ethnic", summaryByEthnic);
 
                 // Draw summary charts
                 chartSummaryByEthnic(summaryByEthnic);
@@ -368,6 +394,48 @@
             function home() {
                     curPage=1
                     setupPage();
+            }
+
+            function setupDataTable(id, data) {
+                var tr = d3.select("#" +id).selectAll(".tr-data")
+                    .data(data)
+                    .enter().append("tr")
+                    .filter(function(d, i) { return i > 0 })
+
+                tr.append("td")
+                    .html(function(d) {return `<span>${d.label}</span>`; });
+
+                tr.append("td")
+                    .html(function(d) {return `<span>${(d.population*100).toFixed(2)}%</span>`});
+
+                tr.append("td")
+                    .html(function(d) {return `<span>${(d.adm_count).toLocaleString(0)}</span>`});
+
+                tr.append("td")
+                    .html(function(d) {return `<span>${(d.adm_percent * 100).toFixed(2)}%</span>`});
+
+            }
+
+            function toggleDataTable(src) {
+               document.getElementsByClassName("table-data"); 
+               var dataTables =  document.getElementsByClassName("table-data");
+               showData= !showData;
+               
+               Array.prototype.filter.call(dataTables, function(e) {
+                    if (showData) {
+                            e.style.display = "block";
+                     } else {
+                            e.style.display = "none";
+                     }
+                 });
+
+                 var switches = document.getElementsByClassName("show-data-checkbox");
+                 Array.prototype.filter.call(switches, function(e) {
+                    if (e != src)
+                        e.checked = showData ? "on" : "off";
+                 });
+
+                 return true;
             }
     </script>
 

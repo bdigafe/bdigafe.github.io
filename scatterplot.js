@@ -4,7 +4,6 @@ function drawScatterPlot(svg, data, margin,
     formatX, formatY,
     tooltipParent, tipContent, tipScript) {
     
-
     var width = 400 - 2 * margin;
     var height = 200 - 2 * margin;
 
@@ -66,7 +65,7 @@ function drawScatterPlot(svg, data, margin,
     
     svg.append("g")
         .attr("class", "axis-title")
-        .attr("transform", `translate(150,150))`)
+        .attr("transform", `translate(150,150)`)
         .append("text")
         .attr("transform", "rotate(90)")
         .text("College cost (USD)")
